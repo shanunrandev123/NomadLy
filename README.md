@@ -1,3 +1,3 @@
-#Capstone Project
+# CAPSTONE PROJECT
 
-##NomadLy - Travel Recommendation Engine
+## NomadLy - Travel Recommendation Engine
