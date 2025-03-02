@@ -10,7 +10,7 @@ import simplejson as json
 
 # filename = r'C:/Users\Asus\Downloads/yelp_academic_dataset_business.json/yelp_academic_dataset_business'
 
-filename_review = r'C:/Users\Asus\Downloads/yelp_academic_dataset_review.json/yelp_academic_dataset_review'
+filename_review = r'/Users/vishnuarun/Documents/nomadly_capstone/Data/yelp_academic_dataset_review.json'
 
 
 

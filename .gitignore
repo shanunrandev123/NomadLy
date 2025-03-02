@@ -1,0 +1,6 @@
+# Large datasets
+Data/yelp_academic_dataset_business.csv
+Data/yelp_academic_dataset_review.csv
+
+# Generated images 
+*.png
