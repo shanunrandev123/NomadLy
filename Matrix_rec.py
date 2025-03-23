@@ -1,6 +1,5 @@
 from Recommendation import *
 import numpy as np
-import Data
 
 from keras.layers import Input, Dense
 from keras.models import Model
@@ -9,27 +8,27 @@ from scipy.sparse import csr_matrix
 
 
 
-PA_Nightlife_Recommendation = decompress_pickle("Data/nightlife/PA_Nightlife_Recommendation.pbz2")
-FL_Nightlife_Recommendation = decompress_pickle("Data/nightlife/FL_Nightlife_Recommendation.pbz2")
-TN_Nightlife_Recommendation = decompress_pickle("Data/nightlife/TN_Nightlife_Recommendation.pbz2")
-IN_Nightlife_Recommendation = decompress_pickle("Data/nightlife/IN_Nightlife_Recommendation.pbz2")
-MO_Nightlife_Recommendation = decompress_pickle("Data/nightlife/MO_Nightlife_Recommendation.pbz2")
+PA_Nightlife_Recommendation = decompress_pickle("/home/ubuntu/capstone/Data/nightlife/PA_Nightlife_Recommendation.pbz2")
+FL_Nightlife_Recommendation = decompress_pickle("/home/ubuntu/capstone/Data/nightlife/FL_Nightlife_Recommendation.pbz2")
+TN_Nightlife_Recommendation = decompress_pickle("/home/ubuntu/capstone/Data/nightlife/TN_Nightlife_Recommendation.pbz2")
+IN_Nightlife_Recommendation = decompress_pickle("/home/ubuntu/capstone/Data/nightlife/IN_Nightlife_Recommendation.pbz2")
+MO_Nightlife_Recommendation = decompress_pickle("/home/ubuntu/capstone/Data/nightlife/MO_Nightlife_Recommendation.pbz2")
+#
+#
+PA_Hotel_Recommendation = decompress_pickle('/home/ubuntu/capstone/Data/hotel/PA_Hotel_Recommendation.pbz2')
+FL_Hotel_Recommendation = decompress_pickle('/home/ubuntu/capstone/Data/hotel/FL_Hotel_Recommendation.pbz2')
+TN_Hotel_Recommendation = decompress_pickle('/home/ubuntu/capstone/Data/hotel/TN_Hotel_Recommendation.pbz2')
+IN_Hotel_Recommendation = decompress_pickle('/home/ubuntu/capstone/Data/hotel/IN_Hotel_Recommendation.pbz2')
+MO_Hotel_Recommendation = decompress_pickle('/home/ubuntu/capstone/Data/hotel/MO_Hotel_Recommendation.pbz2')
 
 
-PA_Hotel_Recommendation = decompress_pickle('Data/hotel/PA_Hotel_Recommendation.pbz2')
-FL_Hotel_Recommendation = decompress_pickle('Data/hotel/FL_Hotel_Recommendation.pbz2')
-TN_Hotel_Recommendation = decompress_pickle('Data/hotel/TN_Hotel_Recommendation.pbz2')
-IN_Hotel_Recommendation = decompress_pickle('Data/hotel/IN_Hotel_Recommendation.pbz2')
-MO_Hotel_Recommendation = decompress_pickle('Data/hotel/MO_Hotel_Recommendation.pbz2')
+PA_Restaurent_Recommendation = decompress_pickle("/home/ubuntu/capstone/Data/restaurant/PA_Restaurent_Recommendation.pbz2")
+FL_Restaurent_Recommendation = decompress_pickle("/home/ubuntu/capstone/Data/restaurant/FL_Restaurent_Recommendation.pbz2")
+TN_Restaurent_Recommendation = decompress_pickle("/home/ubuntu/capstone/Data/restaurant/TN_Restaurent_Recommendation.pbz2")
+IN_Restaurent_Recommendation = decompress_pickle("/home/ubuntu/capstone/Data/restaurant/IN_Restaurent_Recommendation.pbz2")
+MO_Restaurent_Recommendation = decompress_pickle("/home/ubuntu/capstone/Data/restaurant/MO_Restaurent_Recommendation.pbz2")
 
-
-PA_Restaurent_Recommendation = decompress_pickle("Data/restaurant/PA_Restaurent_Recommendation.pbz2")
-FL_Restaurent_Recommendation = decompress_pickle("Data/restaurant/FL_Restaurent_Recommendation.pbz2")
-TN_Restaurent_Recommendation = decompress_pickle("Data/restaurant/TN_Restaurent_Recommendation.pbz2")
-IN_Restaurent_Recommendation = decompress_pickle("Data/restaurant/IN_Restaurent_Recommendation.pbz2")
-MO_Restaurent_Recommendation = decompress_pickle("Data/restaurant/MO_Restaurent_Recommendation.pbz2")
-
-
+#
 
 
 
@@ -127,31 +126,73 @@ def calculateMF(ratings_mat):
 
 PA_Hotel_MF = calculateMF(PA_Hotel_Recommendation.ratings_mat)
 
-compressed_pickle("PA_Hotel_MF", PA_Hotel_MF)
+compressed_pickle("/home/ubuntu/capstone/Data/hotel/PA_Hotel_MF", PA_Hotel_MF)
 
 PA_Restaurent_MF = calculateMF(PA_Restaurent_Recommendation.ratings_mat)
 
-compressed_pickle("PA_Restaurent_MF", PA_Restaurent_MF)
+compressed_pickle("/home/ubuntu/capstone/Data/restaurant/PA_Restaurent_MF", PA_Restaurent_MF)
+
+PA_Nightlife_MF = calculateMF(PA_Nightlife_Recommendation.ratings_mat)
+
+compressed_pickle("/home/ubuntu/capstone/Data/nightlife/PA_Nightlife_MF", PA_Nightlife_MF)
 
 
 
 FL_Hotel_MF = calculateMF(FL_Hotel_Recommendation.ratings_mat)
-compressed_pickle("FL_Hotel_MF", FL_Hotel_MF)
+
+compressed_pickle("/home/ubuntu/capstone/Data/hotel/FL_Hotel_MF", FL_Hotel_MF)
+
 FL_Restaurent_MF = calculateMF(FL_Restaurent_Recommendation.ratings_mat)
-compressed_pickle("FL_Restaurent_MF", FL_Restaurent_MF)
+
+compressed_pickle("/home/ubuntu/capstone/Data/restaurant/FL_Restaurent_MF", FL_Restaurent_MF)
+
+FL_Nightlife_MF = calculateMF(FL_Nightlife_Recommendation.ratings_mat)
+
+compressed_pickle("/home/ubuntu/capstone/Data/nightlife/FL_Nightlife_MF", FL_Nightlife_MF)
 
 TN_Hotel_MF = calculateMF(TN_Hotel_Recommendation.ratings_mat)
-compressed_pickle("TN_Hotel_MF", TN_Hotel_MF)
+
+compressed_pickle("/home/ubuntu/capstone/Data/hotel/TN_Hotel_MF", TN_Hotel_MF)
+
 TN_Restaurent_MF = calculateMF(TN_Restaurent_Recommendation.ratings_mat)
-compressed_pickle("TN_Restaurent_MF", TN_Restaurent_MF)
+
+compressed_pickle("/home/ubuntu/capstone/Data/restaurant/TN_Restaurent_MF", TN_Restaurent_MF)
+
+
+TN_Nightlife_MF = calculateMF(TN_Nightlife_Recommendation.ratings_mat)
+
+compressed_pickle("/home/ubuntu/capstone/Data/nightlife/TN_Nightlife_MF", TN_Nightlife_MF)
 
 IN_Hotel_MF = calculateMF(IN_Hotel_Recommendation.ratings_mat)
-compressed_pickle("IN_Hotel_MF", IN_Hotel_MF)
+
+compressed_pickle("/home/ubuntu/capstone/Data/hotel/IN_Hotel_MF", IN_Hotel_MF)
+
 IN_Restaurent_MF = calculateMF(IN_Restaurent_Recommendation.ratings_mat)
-compressed_pickle("IN_Restaurent_MF", IN_Restaurent_MF)
+
+compressed_pickle("/home/ubuntu/capstone/Data/restaurant/IN_Restaurent_MF", IN_Restaurent_MF)
+
+
+IN_Nightlife_MF = calculateMF(IN_Nightlife_Recommendation.ratings_mat)
+
+compressed_pickle("/home/ubuntu/capstone/Data/nightlife/IN_Nightlife_MF", IN_Nightlife_MF)
+
+
 
 MO_Hotel_MF = calculateMF(MO_Hotel_Recommendation.ratings_mat)
-compressed_pickle("MO_Hotel_MF", MO_Hotel_MF)
+
+compressed_pickle("/home/ubuntu/capstone/Data/hotel/MO_Hotel_MF", MO_Hotel_MF)
+
 MO_Restaurent_MF = calculateMF(MO_Restaurent_Recommendation.ratings_mat)
-compressed_pickle("MO_Restaurent_MF", MO_Restaurent_MF)
+
+compressed_pickle("/home/ubuntu/capstone/Data/restaurant/MO_Restaurent_MF", MO_Restaurent_MF)
+
+
+MO_Nightlife_MF = calculateMF(MO_Nightlife_Recommendation.ratings_mat)
+
+compressed_pickle("/home/ubuntu/capstone/Data/nightlife/MO_Nightlife_MF", MO_Nightlife_MF)
+
+
+
+
+
 
