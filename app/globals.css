@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142.1 76.2% 36.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 142.1 70.6% 45.3%;
+    --primary-foreground: 144.9 80.4% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142.4 71.8% 29.2%;
+  }
+
+  /* Sunset Adventure Theme */
+  .theme-sunset {
+    --primary-color: 17 100% 64%;
+    --secondary-color: 270 32% 34%;
+    --accent-color: 43 100% 58%;
+    --background-color: 30 100% 98%;
+    --muted-color: 17 100% 95%;
+    --text-color: 270 32% 20%;
+    --text-muted-color: 270 10% 40%;
+    --logo-gradient-from: #ff7d45;
+    --logo-gradient-to: #5e3b73;
+    --button-bg: #ff7d45;
+    --button-hover: #f06a34;
+    --hero-gradient-from: #fff2e6;
+    --quote-gradient-from: #fff0eb;
+    --quote-gradient-to: #fff8e6;
+    --footer-bg: #3d2963;
+
+    --background: var(--background-color);
+    --foreground: var(--text-color);
+    --card: 0 0% 100%;
+    --card-foreground: var(--text-color);
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--text-color);
+    --primary: var(--primary-color);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--secondary-color);
+    --secondary-foreground: 0 0% 100%;
+    --muted: var(--muted-color);
+    --muted-foreground: var(--text-muted-color);
+    --accent: var(--accent-color);
+    --accent-foreground: 0 0% 100%;
+    --border: 30 10% 90%;
+    --input: 30 10% 90%;
+    --ring: var(--primary-color);
+  }
+
+  /* Ocean Explorer Theme */
+  .theme-ocean {
+    --primary-color: 198 65% 29%;
+    --secondary-color: 173 40% 56%;
+    --accent-color: 17 100% 66%;
+    --background-color: 195 100% 99%;
+    --muted-color: 195 50% 95%;
+    --text-color: 198 65% 15%;
+    --text-muted-color: 198 30% 40%;
+    --logo-gradient-from: #1a5f7a;
+    --logo-gradient-to: #57c5b6;
+    --button-bg: #1a5f7a;
+    --button-hover: #154d63;
+    --hero-gradient-from: #e6f7ff;
+    --quote-gradient-from: #e6f7ff;
+    --quote-gradient-to: #e6fff9;
+    --footer-bg: #0d3b4d;
+
+    --background: var(--background-color);
+    --foreground: var(--text-color);
+    --card: 0 0% 100%;
+    --card-foreground: var(--text-color);
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--text-color);
+    --primary: var(--primary-color);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--secondary-color);
+    --secondary-foreground: 0 0% 100%;
+    --muted: var(--muted-color);
+    --muted-foreground: var(--text-muted-color);
+    --accent: var(--accent-color);
+    --accent-foreground: 0 0% 100%;
+    --border: 195 20% 90%;
+    --input: 195 20% 90%;
+    --ring: var(--primary-color);
+  }
+
+  /* Global Spice Theme */
+  .theme-spice {
+    --primary-color: 14 68% 62%;
+    --secondary-color: 151 22% 60%;
+    --accent-color: 43 79% 75%;
+    --background-color: 43 50% 97%;
+    --muted-color: 14 30% 95%;
+    --text-color: 230 20% 30%;
+    --text-muted-color: 230 10% 50%;
+    --logo-gradient-from: #e07a5f;
+    --logo-gradient-to: #3d405b;
+    --button-bg: #e07a5f;
+    --button-hover: #d06a4f;
+    --hero-gradient-from: #fdf6e6;
+    --quote-gradient-from: #faeee6;
+    --quote-gradient-to: #fcf5e0;
+    --footer-bg: #2d2e48;
+
+    --background: var(--background-color);
+    --foreground: var(--text-color);
+    --card: 0 0% 100%;
+    --card-foreground: var(--text-color);
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--text-color);
+    --primary: var(--primary-color);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--secondary-color);
+    --secondary-foreground: 0 0% 100%;
+    --muted: var(--muted-color);
+    --muted-foreground: var(--text-muted-color);
+    --accent: var(--accent-color);
+    --accent-foreground: 230 20% 20%;
+    --border: 43 20% 90%;
+    --input: 43 20% 90%;
+    --ring: var(--primary-color);
+  }
+
+  /* Tropical Paradise Theme */
+  .theme-tropical {
+    --primary-color: 153 40% 30%;
+    --secondary-color: 153 38% 41%;
+    --accent-color: 37 100% 50%;
+    --background-color: 140 50% 98%;
+    --muted-color: 153 30% 95%;
+    --text-color: 153 40% 15%;
+    --text-muted-color: 153 20% 40%;
+    --logo-gradient-from: #2d6a4f;
+    --logo-gradient-to: #ff9e00;
+    --button-bg: #2d6a4f;
+    --button-hover: #235a3f;
+    --hero-gradient-from: #e6f9f0;
+    --quote-gradient-from: #e6f9f0;
+    --quote-gradient-to: #fff5e6;
+    --footer-bg: #1a3e2f;
+
+    --background: var(--background-color);
+    --foreground: var(--text-color);
+    --card: 0 0% 100%;
+    --card-foreground: var(--text-color);
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--text-color);
+    --primary: var(--primary-color);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--secondary-color);
+    --secondary-foreground: 0 0% 100%;
+    --muted: var(--muted-color);
+    --muted-foreground: var(--text-muted-color);
+    --accent: var(--accent-color);
+    --accent-foreground: 0 0% 100%;
+    --border: 140 20% 90%;
+    --input: 140 20% 90%;
+    --ring: var(--primary-color);
+  }
+
+  /* Urban Wanderer Theme */
+  .theme-urban {
+    --primary-color: 230 17% 35%;
+    --secondary-color: 315 10% 60%;
+    --accent-color: 10 20% 73%;
+    --background-color: 0 0% 95%;
+    --muted-color: 230 10% 95%;
+    --text-color: 240 30% 18%;
+    --text-muted-color: 240 10% 40%;
+    --logo-gradient-from: #4a4e69;
+    --logo-gradient-to: #c9ada7;
+    --button-bg: #4a4e69;
+    --button-hover: #3a3e59;
+    --hero-gradient-from: #f2f2f7;
+    --quote-gradient-from: #f2f2f7;
+    --quote-gradient-to: #f7f2f0;
+    --footer-bg: #22202e;
+
+    --background: var(--background-color);
+    --foreground: var(--text-color);
+    --card: 0 0% 100%;
+    --card-foreground: var(--text-color);
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--text-color);
+    --primary: var(--primary-color);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--secondary-color);
+    --secondary-foreground: 0 0% 100%;
+    --muted: var(--muted-color);
+    --muted-foreground: var(--text-muted-color);
+    --accent: var(--accent-color);
+    --accent-foreground: 240 30% 18%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: var(--primary-color);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Theme-specific styles */
+  .logo-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(to right, var(--logo-gradient-from), var(--logo-gradient-to));
+  }
+
+  /* Theme-specific button styles */
+  .theme-btn {
+    background-color: var(--button-bg);
+    color: white;
+  }
+
+  .theme-btn:hover:not(:disabled) {
+    background-color: var(--button-hover);
+  }
+
+  /* Theme-specific background gradients */
+  .hero-gradient {
+    background-image: linear-gradient(to bottom, var(--hero-gradient-from), white);
+  }
+
+  /* Theme-specific quote backgrounds */
+  .quote-gradient {
+    background-image: linear-gradient(to right, var(--quote-gradient-from), var(--quote-gradient-to));
+  }
+
+  /* Theme-specific footer styles */
+  .theme-footer {
+    background-color: var(--footer-bg);
+    color: white;
+  }
+}
+
