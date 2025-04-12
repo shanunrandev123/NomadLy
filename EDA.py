@@ -8,7 +8,9 @@ import csv
 
 
 
-business_df = pd.read_csv(r'Data\yelp_academic_dataset_business.csv')
+business_df = pd.read_csv(r'Data/yelp_academic_dataset_business.csv')
+
+# business_df = pd.read_csv(r'C:/Users/Asus/capstone/Data/yelp_academic_dataset_business.csv')
 
 # print(business_df.head())
 # print(business_df.isnull().sum().sum())
@@ -85,7 +87,7 @@ for state in top_10_states:
     
     
     
-# print(entertainment_state_df_map)
+# print(hotel_state_df_map['NJ'].keys())
 
 
     

@@ -97,51 +97,60 @@ def calculateAECF(ratings_mat):
     ratings_mat = ratings_mat[:100,:500]
     return AE_CF(ratings_mat)
 
-#
-# FL_Restaurent_AECF = calculateAECF(FL_Restaurent_Recommendation.ratings_mat)
-# PA_Restaurent_AECF = calculateAECF(PA_Restaurent_Recommendation.ratings_mat)
-# TN_Restaurent_AECF = calculateAECF(TN_Restaurent_Recommendation.ratings_mat)
-# IN_Restaurent_AECF = calculateAECF(IN_Restaurent_Recommendation.ratings_mat)
-# MO_Restaurent_AECF = calculateAECF(MO_Restaurent_Recommendation.ratings_mat)
+
+# LA_Restaurent_AECF = calculateAECF(LA_Restaurent_Recommendation.ratings_mat)
+# NJ_Restaurent_AECF = calculateAECF(NJ_Restaurent_Recommendation.ratings_mat)
+# NV_Restaurent_AECF = calculateAECF(NV_Restaurent_Recommendation.ratings_mat)
+# AB_Restaurent_AECF = calculateAECF(AB_Restaurent_Recommendation.ratings_mat)
+# AZ_Restaurent_AECF = calculateAECF(AZ_Restaurent_Recommendation.ratings_mat)
+
+
+
+# LA_Hotel_AECF = calculateAECF(LA_Hotel_Recommendation.ratings_mat)
+# NJ_Hotel_AECF = calculateAECF(NJ_Hotel_Recommendation.ratings_mat)
+# NV_Hotel_AECF = calculateAECF(NV_Hotel_Recommendation.ratings_mat)
+# AB_Hotel_AECF = calculateAECF(AB_Hotel_Recommendation.ratings_mat)
+# AZ_Hotel_AECF = calculateAECF(AZ_Hotel_Recommendation.ratings_mat)
+
+# TN_Hotel_AECF = calculateAECF(TN_Hotel_Recommendation.ratings_mat)
 
 #
-# PA_Hotel_AECF = calculateAECF(PA_Hotel_Recommendation.ratings_mat)
-# FL_Hotel_AECF = calculateAECF(FL_Hotel_Recommendation.ratings_mat)
-# # TN_Hotel_AECF = calculateAECF(TN_Hotel_Recommendation.ratings_mat)
-# IN_Hotel_AECF = calculateAECF(IN_Hotel_Recommendation.ratings_mat)
-# MO_Hotel_AECF = calculateAECF(MO_Hotel_Recommendation.ratings_mat)
+# LA_Nightlife_AECF = calculateAECF(LA_Nightlife_Recommendation.ratings_mat)
+# NJ_Nightlife_AECF = calculateAECF(NJ_Nightlife_Recommendation.ratings_mat)
+# NV_Nightlife_AECF = calculateAECF(NV_Nightlife_Recommendation.ratings_mat)
+# AB_Nightlife_AECF = calculateAECF(AB_Nightlife_Recommendation.ratings_mat)
+# AZ_Nightlife_AECF = calculateAECF(AZ_Nightlife_Recommendation.ratings_mat)
 
 #
-# PA_Nightlife_AECF = calculateAECF(PA_Nightlife_Recommendation.ratings_mat)
-# FL_Nightlife_AECF = calculateAECF(FL_Nightlife_Recommendation.ratings_mat)
-TN_Nightlife_AECF = calculateAECF(TN_Nightlife_Recommendation.ratings_mat)
-# IN_Nightlife_AECF = calculateAECF(IN_Nightlife_Recommendation.ratings_mat)
-# MO_Nightlife_AECF = calculateAECF(MO_Nightlife_Recommendation.ratings_mat)
+# compressed_pickle("/home/ubuntu/capstone/Data/restaurant/LA_Restaurent_AECF", LA_Restaurent_AECF)
+# compressed_pickle("/home/ubuntu/capstone/Data/restaurant/NJ_Restaurent_AECF", NJ_Restaurent_AECF)
+# compressed_pickle("/home/ubuntu/capstone/Data/restaurant/NV_Restaurent_AECF", NV_Restaurent_AECF)
+# compressed_pickle("/home/ubuntu/capstone/Data/restaurant/AB_Restaurent_AECF", AB_Restaurent_AECF)
+# compressed_pickle("/home/ubuntu/capstone/Data/restaurant/AZ_Restaurent_AECF", AZ_Restaurent_AECF)
+#
 
-#
-# compressed_pickle("/home/ubuntu/capstone/Data/restaurant/PA_Restaurent_AECF", PA_Restaurent_AECF)
-# compressed_pickle("/home/ubuntu/capstone/Data/restaurant/FL_Restaurent_AECF", FL_Restaurent_AECF)
-# compressed_pickle("/home/ubuntu/capstone/Data/restaurant/TN_Restaurent_AECF", TN_Restaurent_AECF)
-# compressed_pickle("/home/ubuntu/capstone/Data/restaurant/IN_Restaurent_AECF", IN_Restaurent_AECF)
-# compressed_pickle("/home/ubuntu/capstone/Data/restaurant/MO_Restaurent_AECF", MO_Restaurent_AECF)
 
-#
-#
-#
-# compressed_pickle("/home/ubuntu/capstone/Data/hotel/PA_Hotel_AECF", PA_Hotel_AECF)
-# compressed_pickle("/home/ubuntu/capstone/Data/hotel/FL_Hotel_AECF", FL_Hotel_AECF)
-# # compressed_pickle("/home/ubuntu/capstone/Data/hotel/TN_Hotel_AECF", TN_Hotel_MF)
-# compressed_pickle("/home/ubuntu/capstone/Data/hotel/IN_Hotel_AECF", IN_Hotel_AECF)
-# compressed_pickle("/home/ubuntu/capstone/Data/hotel/MO_Hotel_AECF", MO_Hotel_AECF)
 
-#
-#
+# compressed_pickle("/home/ubuntu/capstone/Data/hotel/NJ_Hotel_AECF", NJ_Hotel_AECF)
+# compressed_pickle("/home/ubuntu/capstone/Data/hotel/NJ_Hotel_AECF", NJ_Hotel_AECF)
+# compressed_pickle("/home/ubuntu/capstone/Data/hotel/NV_Hotel_AECF", NV_Hotel_AECF)
+# compressed_pickle("/home/ubuntu/capstone/Data/hotel/AB_Hotel_AECF", AB_Hotel_AECF)
+# compressed_pickle("/home/ubuntu/capstone/Data/hotel/AZ_Hotel_AECF", AZ_Hotel_AECF)
+
+# compressed_pickle("/home/ubuntu/capstone/Data/hotel/NV_Hotel_AECF", NV_Hotel_AECF)
+
+
+
+
 #
 # compressed_pickle("/home/ubuntu/capstone/Data/nightlife/PA_Nightlife_AECF", PA_Nightlife_AECF)
 # compressed_pickle("/home/ubuntu/capstone/Data/nightlife/FL_Nightlife_AECF", FL_Nightlife_AECF)
-compressed_pickle("/home/ubuntu/capstone/Data/nightlife/TN_Nightlife_AECF", TN_Nightlife_AECF)
+# compressed_pickle("/home/ubuntu/capstone/Data/nightlife/TN_Nightlife_AECF", TN_Nightlife_AECF)
 # compressed_pickle("/home/ubuntu/capstone/Data/nightlife/IN_Nightlife_AECF", IN_Nightlife_AECF)
 # compressed_pickle("/home/ubuntu/capstone/Data/nightlife/MO_Nightlife_AECF", MO_Nightlife_AECF)
 #
-
-
+#
+#
+# compressed_pickle("/home/ubuntu/capstone/Data/nightlife/NV_Nightlife_AECF", NV_Nightlife_AECF)
+# compressed_pickle("/home/ubuntu/capstone/Data/nightlife/AB_Nightlife_AECF", AB_Nightlife_AECF)
+# compressed_pickle("/home/ubuntu/capstone/Data/nightlife/AZ_Nightlife_AECF", AZ_Nightlife_AECF)

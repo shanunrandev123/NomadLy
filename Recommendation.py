@@ -20,8 +20,9 @@ def decompress_pickle(file):
 
 
 
-review_df = pd.read_csv(r'C:\Users\Asus\Downloads\yelp_academic_dataset_review.json\yelp_academic_dataset_review.csv')
+review_df = pd.read_csv(r'Data/yelp_academic_dataset_review.csv')
 
+# review_df = pd.read_csv(r'C:/Users/Asus/capstone/Data/yelp_academic_dataset_review.csv')
 
 
 #This Recommendations class is a 
@@ -120,8 +121,16 @@ class Recommendations:
         for u in range(self.ratings_mat.shape[0]):
             business_unvisited = np.where(self.ratings_mat[u] == 0)[0]
             unwatched_popularity = self.business_popularity[business_unvisited]
+
+            top_indices = np.argsort(unwatched_popularity)[::-1]
+            top_businesses = business_unvisited[top_indices]
+
+            # Fill up to 50 recommendations (or fewer if less available)
+            num_recs = min(50, len(top_businesses))
+            self.business_recommendations[u, :num_recs] = top_businesses[:num_recs]
+
         # Sort the unwatched movies according to popularity and fetch top 50 to recommend
-            self.business_recommendations[u] = business_unvisited[np.argsort(unwatched_popularity)[::-1]][:50]
+        #     self.business_recommendations[u] = business_unvisited[np.argsort(unwatched_popularity)[::-1]][:50]
             
 
     
@@ -149,59 +158,96 @@ class Recommendations:
         bus_df = self.business_df[self.business_df['business_id'] == business_hash].iloc[0]
         return self.Business(bus_df['name'], bus_df['address'], bus_df['city'], bus_df['state'], bus_df['postal_code'], bus_df['stars'])
     
-    
-    
-PA_Hotel_Recommendation = Recommendations(hotel_state_df_map['PA'], 'PA')
-FL_Hotel_Recommendation = Recommendations(hotel_state_df_map['FL'], 'FL')
+
+LA_Hotel_Recommendation = Recommendations(hotel_state_df_map['LA'], 'LA')
+AZ_Hotel_Recommendation = Recommendations(hotel_state_df_map['AZ'], 'AZ')
+NJ_Hotel_Recommendation = Recommendations(hotel_state_df_map['NJ'], 'NJ')
+NV_Hotel_Recommendation = Recommendations(hotel_state_df_map['NV'], 'NV')
+AB_Hotel_Recommendation = Recommendations(hotel_state_df_map['AB'], 'AB')
 TN_Hotel_Recommendation = Recommendations(hotel_state_df_map['TN'], 'TN')
-IN_Hotel_Recommendation = Recommendations(hotel_state_df_map['IN'], 'IN')
-MO_Hotel_Recommendation = Recommendations(hotel_state_df_map['MO'], 'MO')
-
-
-PA_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['PA'], 'PA', True)
-FL_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['FL'], 'FL', True)
-TN_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['TN'], 'TN', True)
-IN_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['IN'], 'IN', True)
-MO_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['MO'], 'MO', True)
-
-
-PA_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['PA'], 'PA', True)
-FL_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['FL'], 'FL', True)
-TN_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['TN'], 'TN', True)
-IN_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['IN'], 'IN', True)
-MO_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['MO'], 'MO', True)
-
-
-
-compressed_pickle("C:/Users/Asus/capstone/Data/nightlife/PA_Nightlife_Recommendation", PA_Nightlife_Recommendation)
-compressed_pickle("C:/Users/Asus/capstone/Data/nightlife/FL_Nightlife_Recommendation", FL_Nightlife_Recommendation)
-compressed_pickle("C:/Users/Asus/capstone/Data/nightlife/TN_Nightlife_Recommendation", TN_Nightlife_Recommendation)
-compressed_pickle("C:/Users/Asus/capstone/Data/nightlife/IN_Nightlife_Recommendation", IN_Nightlife_Recommendation)
-compressed_pickle("C:/Users/Asus/capstone/Data/nightlife/MO_Nightlife_Recommendation", MO_Nightlife_Recommendation)
 
 
 
 
 
 
+# PA_Hotel_Recommendation.getNPRForUser(0)
 
-compressed_pickle("C:/Users/Asus/capstone/Data/restaurant/PA_Restaurent_Recommendation", PA_Restaurent_Recommendation)
-compressed_pickle("C:/Users/Asus/capstone/Data/restaurant/FL_Restaurent_Recommendation", FL_Restaurent_Recommendation)
-compressed_pickle("C:/Users/Asus/capstone/Data/restaurant/TN_Restaurent_Recommendation", TN_Restaurent_Recommendation)
-compressed_pickle("C:/Users/Asus/capstone/Data/restaurant/IN_Restaurent_Recommendation", IN_Restaurent_Recommendation)
-compressed_pickle("C:/Users/Asus/capstone/Data/restaurant/MO_Restaurent_Recommendation", MO_Restaurent_Recommendation)
+# FL_Hotel_Recommendation = Recommendations(hotel_state_df_map['FL'], 'FL')
 
-
-
-compressed_pickle("C:/Users/Asus/capstone/Data/hotel/PA_Hotel_Recommendation", PA_Hotel_Recommendation)
-compressed_pickle("C:/Users/Asus/capstone/Data/hotel/FL_Hotel_Recommendation", FL_Hotel_Recommendation)
-compressed_pickle("C:/Users/Asus/capstone/Data/hotel/TN_Hotel_Recommendation", TN_Hotel_Recommendation)
-compressed_pickle("C:/Users/Asus/capstone/Data/hotel/IN_Hotel_Recommendation", IN_Hotel_Recommendation)
-compressed_pickle("C:/Users/Asus/capstone/Data/hotel/MO_Hotel_Recommendation", MO_Hotel_Recommendation)
-        
+# FL_Hotel_Recommendation.getNPRForUser(0)
+# TN_Hotel_Recommendation = Recommendations(hotel_state_df_map['TN'], 'TN')
+# IN_Hotel_Recommendation = Recommendations(hotel_state_df_map['IN'], 'IN')
+# MO_Hotel_Recommendation = Recommendations(hotel_state_df_map['MO'], 'MO')
 
 
+# PA_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['PA'], 'PA', True)
 
-        
+# PA_Restaurent_Recommendation.getNPRForUser(0)
+
+# FL_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['FL'], 'FL', True)
+# FL_Restaurent_Recommendation.getNPRForUser(1)
+# TN_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['TN'], 'TN', True)
+# IN_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['IN'], 'IN', True)
+# MO_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['MO'], 'MO', True)
+
+NV_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['NV'], 'NV', True)
+
+AB_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['AB'], 'AB', True)
+
+NJ_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['NJ'], 'NJ', True)
+
+AZ_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['AZ'], 'NJ', True)
+
+LA_Restaurent_Recommendation = Recommendations(restaurent_state_df_map['LA'], 'LA', True)
+
+# PA_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['PA'], 'PA', True)
+# PA_Nightlife_Recommendation.getNPRForUser(0)
+
+# FL_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['FL'], 'FL', True)
+# TN_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['TN'], 'TN', True)
+# TN_Nightlife_Recommendation.getNPRForUser(2)
+# IN_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['IN'], 'IN', True)
+# MO_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['MO'], 'MO', True)
+
+
+
+NJ_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['NJ'], 'NJ', True)
+LA_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['LA'], 'LA', True)
+AB_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['AB'], 'AB', True)
+NV_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['NV'], 'NV', True)
+AZ_Nightlife_Recommendation = Recommendations(nightlife_state_df_map['AZ'], 'AZ', True)
+
+
+#
+#
+# compressed_pickle("/home/ubuntu/capstone/Data/nightlife/NJ_Nightlife_Recommendation", NJ_Nightlife_Recommendation)
+# compressed_pickle("/home/ubuntu/capstone/Data/nightlife/LA_Nightlife_Recommendation", LA_Nightlife_Recommendation)
+# compressed_pickle("/home/ubuntu/capstone/Data/nightlife/AB_Nightlife_Recommendation", AB_Nightlife_Recommendation)
+# compressed_pickle("/home/ubuntu/capstone/Data/nightlife/NV_Nightlife_Recommendation", NV_Nightlife_Recommendation)
+# compressed_pickle("/home/ubuntu/capstone/Data/nightlife/AZ_Nightlife_Recommendation", AZ_Nightlife_Recommendation)
+#
+
+
+
+
+
+
+# compressed_pickle("/home/ubuntu/capstone/Data/restaurant/LA_Restaurent_Recommendation", LA_Restaurent_Recommendation)
+# compressed_pickle("/home/ubuntu/capstone/Data/restaurant/NV_Restaurent_Recommendation", NV_Restaurent_Recommendation)
+# compressed_pickle("/home/ubuntu/capstone/Data/restaurant/AB_Restaurent_Recommendation", AB_Restaurent_Recommendation)
+# compressed_pickle("C:/Users/Asus/capstone/Data/restaurant/IN_Restaurent_Recommendation", IN_Restaurent_Recommendation)
+# compressed_pickle("C:/Users/Asus/capstone/Data/restaurant/MO_Restaurent_Recommendation", MO_Restaurent_Recommendation)
+
+
+#
+# compressed_pickle("/home/ubuntu/capstone/Data/hotel/LA_Hotel_Recommendation", LA_Hotel_Recommendation)
+# compressed_pickle("/home/ubuntu/capstone/Data/hotel/AZ_Hotel_Recommendation", AZ_Hotel_Recommendation)
+# compressed_pickle("/home/ubuntu/capstone/Data/hotel/NJ_Hotel_Recommendation", NJ_Hotel_Recommendation)
+# # compressed_pickle("/home/ubuntu/capstone/Data/hotel/NV_Hotel_Recommendation", NV_Hotel_Recommendation)
+# compressed_pickle("/home/ubuntu/capstone/Data/hotel/AB_Hotel_Recommendation", AB_Hotel_Recommendation)
+# #
+# #
+
         
 
