@@ -143,6 +143,83 @@ This module implements a matrix factorization model (MF) to generate collaborati
   - It filters out businesses already rated (by setting their score to a very low value).
   - It then selects the top *k* (up to 50) recommended businesses based on the highest predicted scores.
   - These recommendations are returned in a NumPy array where each row corresponds to one user.
+ 
+
+
+
+
+
+
+## Autoencoder-based Collaborative Filtering (AECF.py)
+
+This module implements a deep learning approach to collaborative filtering using an autoencoder architecture built with Keras. The goal of this module is to learn latent representations of users from a sparse ratings matrix, so that the system can predict unknown ratings and generate recommendations for businesses based on user–item interactions.
+
+### Overview
+
+- **Input Data:**  
+  The model takes as input the user–item (ratings) matrix. This matrix is generally sparse because most users have rated only a few businesses.
+
+- **Train/Test Split:**  
+  The ratings matrix is split into training and test sets along the user axis. By default, 80% of the user data is used for training, and the remaining 20% is kept for testing.
+
+- **Model Architecture:**  
+  The autoencoder is defined using several fully connected (`Dense`) layers and regularized using `Dropout`. The encoder part transforms the high-dimensional input into a lower-dimensional latent space, while the decoder attempts to reconstruct the original ratings. The final output layer uses a sigmoid activation function to predict ratings on a normalized scale.
+
+- **Learning Rate Scheduling:**  
+  A custom learning rate scheduler is used during training. The learning rate decays once the training epochs cross certain thresholds (e.g., after 50 and 100 epochs), which helps in fine-tuning the model.
+
+- **Prediction and Recommendation:**  
+  Once trained, the encoder is used to generate user embeddings. Using these embeddings, user–user similarities are computed via the dot product. The predicted ratings for each user are estimated as a weighted sum of the known ratings, where the weights come from user similarity scores.  
+  A helper function (`get_user_recommendation`) returns the top-N item indices for a given user based on predicted ratings.
+
+- **Evaluation:**  
+  The model calculates the Root Mean Squared Error (RMSE) on the test set to measure prediction accuracy.
+
+### Detailed Code Walkthrough
+
+1. **Class Initialization:**  
+   - The `AE_CF` class receives the ratings matrix as input and divides it into training and testing datasets.
+   - The constructor (`__init__`) calls the training function and then computes the RMSE for evaluation.
+
+2. **Model Training (`train_cf` Method):**  
+   - **Architecture:**  
+     An autoencoder model is built:
+     - **Input Layer:** Matches the number of items in the ratings matrix.
+     - **Encoder:** Three sequential dense layers reduce dimensionality (with dropout for regularization).
+     - **Decoder:** Mirrors the encoder with dense layers and dropout, ending with a sigmoid activation to output predicted ratings.
+   - **Learning Rate Schedule:**  
+     A custom learning rate scheduler adjusts the learning rate based on the current epoch.
+   - **Training:**  
+     The model is compiled with the Adam optimizer and trained on the training set for 150 epochs using a batch size of 32. Validation is performed on the test set.
+
+3. **Generating Embeddings:**  
+   - After training, the encoder model (obtained via extracting the hidden layer) is used to generate latent embeddings for every user.
+   - These embeddings are used to calculate:
+     - **User Similarity:** Computed as the dot product between user embeddings.
+     - **Item Similarity:** Computed from the transposed embeddings (if needed).
+
+4. **Making Predictions:**  
+   - The predicted ratings (`self.user_ratings`) are computed by taking the dot product of the user similarity matrix with the original ratings matrix, normalized by the sum of absolute similarity scores per user.
+   - The `get_user_recommendation` method retrieves the top 12 predicted items (business indices) for any user.
+
+5. **Helper Function (`calculateAECF`):**  
+   - For quick experiments or resource constraints, a helper function slices the ratings matrix to a smaller subset (first 100 users and 500 items) before training the AE_CF model.
+
+6. **Model Saving:**  
+   - Although commented out, the code includes lines for using custom compression functions (via `pickle` and `bz2file`) to save the trained models for later use.
+
+### Summary
+
+This AECF module augments the recommendation engine by employing an autoencoder-based collaborative filtering technique. By learning compressed user representations:
+- The system can better capture hidden interactions between users and businesses.
+- It provides more nuanced and personalized recommendations compared to simpler popularity-based methods.
+- The use of deep learning allows the model to adapt to complex patterns in user behavior, thus improving prediction accuracy.
+
+The module is part of the larger NomadLy project, enhancing travel recommendations based on Yelp review data and complementing other recommendation approaches such as traditional matrix factorization.
+
+---
+
+
 
 
 
