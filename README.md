@@ -217,7 +217,17 @@ This AECF module augments the recommendation engine by employing an autoencoder-
 
 The module is part of the larger NomadLy project, enhancing travel recommendations based on Yelp review data and complementing other recommendation approaches such as traditional matrix factorization.
 
----
+
+
+## Using the Flask app
+
+ - Run new_app.py
+![image](https://github.com/user-attachments/assets/1b8ee1f5-4f9a-4a0c-addb-5ecf4bbaa5a5)
+![image](https://github.com/user-attachments/assets/be8f7a75-9b3c-46ff-8af7-6ff021a0ac0d)
+![image](https://github.com/user-attachments/assets/1c413e1b-f300-4db5-be3f-fcf14cebd612)
+
+
+
 
 
 
