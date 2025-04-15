@@ -1,3 +1,3 @@
-# CAPSTONE PROJECT
+# RECSys
 
 ## NomadLy - Travel Recommendation Engine
