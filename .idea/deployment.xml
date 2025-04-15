@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="capstone_shanun (18)" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="capstone_conn">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/capstone" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (10)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (11)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (12)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (13)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (14)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (15)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (16)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (17)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (18)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (2)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (3)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (4)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (5)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (6)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (7)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (8)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="capstone_shanun (9)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/capstone" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

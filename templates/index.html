@@ -1,0 +1,364 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>AECF Hotel Recommendations</title>-->
+<!--    <style>-->
+<!--        body { font-family: Arial; margin: 40px; }-->
+<!--        select, button { padding: 10px; margin: 10px 0; font-size: 16px; }-->
+<!--        .card { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 6px; }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h2>Get Hotel Recommendations</h2>-->
+<!--    <form method="POST">-->
+<!--        <label for="state">Select State:</label>-->
+<!--        <select name="state" id="state" required>-->
+<!--            {% for state in states %}-->
+<!--            <option value="{{ state }}" {% if selected_state == state %}selected{% endif %}>{{ state }}</option>-->
+<!--            {% endfor %}-->
+<!--        </select><br>-->
+
+<!--        <label for="user_id">Select User ID:</label>-->
+<!--        <select name="user_id" id="user_id" required>-->
+<!--            {% for user in user_ids %}-->
+<!--            <option value="{{ user }}" {% if selected_user == user %}selected{% endif %}>User {{ user }}</option>-->
+<!--            {% endfor %}-->
+<!--        </select><br>-->
+
+<!--        <button type="submit">Get Recommendations</button>-->
+<!--    </form>-->
+
+<!--    {% if recommendations %}-->
+<!--        <h3>Top Recommendations:</h3>-->
+<!--        {% for b in recommendations %}-->
+<!--        <div class="card">-->
+<!--            <strong>{{ b.name }}</strong><br>-->
+<!--            {{ b.address }}, {{ b.city }}, {{ b.state }} - {{ b.postal_code }}<br>-->
+<!--            ⭐ {{ b.stars }}-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+<!--    {% endif %}-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+<!--<form method="POST">-->
+<!--    <label for="state">State:</label>-->
+<!--    <select name="state" id="state">-->
+<!--        {% for state in states %}-->
+<!--            <option value="{{ state }}" {% if selected_state == state %}selected{% endif %}>{{ state }}</option>-->
+<!--        {% endfor %}-->
+<!--    </select>-->
+
+<!--    <label for="user_id">User ID:</label>-->
+<!--    <select name="user_id" id="user_id">-->
+<!--        {% for uid in user_ids %}-->
+<!--            <option value="{{ uid }}" {% if selected_user == uid %}selected{% endif %}>{{ uid }}</option>-->
+<!--        {% endfor %}-->
+<!--    </select>-->
+
+<!--    <label for="category">Category:</label>-->
+<!--    <select name="category" id="category">-->
+<!--        {% for cat in categories %}-->
+<!--            <option value="{{ cat }}" {% if selected_category == cat %}selected{% endif %}>{{ cat.capitalize() }}</option>-->
+<!--        {% endfor %}-->
+<!--    </select>-->
+
+<!--    <input type="submit" value="Get Recommendations">-->
+<!--</form>-->
+
+<!--<ul>-->
+<!--    {% for business in recommendations %}-->
+<!--        <li>-->
+<!--            <strong>{{ business['name'] }}</strong><br>-->
+<!--            {{ business['address'] }}<br>-->
+<!--            Rating: {{ business['stars'] }}-->
+<!--        </li>-->
+<!--    {% endfor %}-->
+<!--</ul>-->
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Recommendations</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;-->
+<!--            background-color: #f9f9f9;-->
+<!--            padding: 40px;-->
+<!--        }-->
+
+<!--        form {-->
+<!--            background: white;-->
+<!--            padding: 20px 30px;-->
+<!--            border-radius: 12px;-->
+<!--            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);-->
+<!--            max-width: 600px;-->
+<!--            margin-bottom: 30px;-->
+<!--        }-->
+
+<!--        label {-->
+<!--            display: block;-->
+<!--            font-size: 1.1em;-->
+<!--            margin-top: 15px;-->
+<!--            margin-bottom: 5px;-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        select {-->
+<!--            width: 100%;-->
+<!--            padding: 10px;-->
+<!--            font-size: 1em;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 6px;-->
+<!--            margin-bottom: 10px;-->
+<!--        }-->
+
+<!--        input[type="submit"] {-->
+<!--            margin-top: 20px;-->
+<!--            background-color: #4CAF50;-->
+<!--            color: white;-->
+<!--            padding: 12px 20px;-->
+<!--            border: none;-->
+<!--            border-radius: 6px;-->
+<!--            cursor: pointer;-->
+<!--            font-size: 1em;-->
+<!--        }-->
+
+<!--        input[type="submit"]:hover {-->
+<!--            background-color: #45a049;-->
+<!--        }-->
+
+<!--        ul {-->
+<!--            list-style: none;-->
+<!--            padding: 0;-->
+<!--        }-->
+
+<!--        li {-->
+<!--            background: white;-->
+<!--            padding: 15px 20px;-->
+<!--            margin-bottom: 15px;-->
+<!--            border-radius: 10px;-->
+<!--            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);-->
+<!--        }-->
+
+<!--        li strong {-->
+<!--            font-size: 1.2em;-->
+<!--            color: #222;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <form method="POST">-->
+<!--        <label for="state">State:</label>-->
+<!--        <select name="state" id="state">-->
+<!--            {% for state in states %}-->
+<!--                <option value="{{ state }}" {% if selected_state == state %}selected{% endif %}>{{ state }}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+
+<!--        <label for="user_id">User ID:</label>-->
+<!--        <select name="user_id" id="user_id">-->
+<!--            {% for uid in user_ids %}-->
+<!--                <option value="{{ uid }}" {% if selected_user == uid %}selected{% endif %}>{{ uid }}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+
+<!--        <label for="category">Category:</label>-->
+<!--        <select name="category" id="category">-->
+<!--            {% for cat in categories %}-->
+<!--                <option value="{{ cat }}" {% if selected_category == cat %}selected{% endif %}>{{ cat.capitalize() }}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+
+<!--        <input type="submit" value="Get Recommendations">-->
+<!--    </form>-->
+
+<!--    <ul>-->
+<!--        {% for business in recommendations %}-->
+<!--            <li>-->
+<!--                <strong>{{ business['name'] }}</strong><br>-->
+<!--                {{ business['address'] }}<br>-->
+<!--                Rating: {{ business['stars'] }}-->
+<!--            </li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nomadly - Recommendations</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            padding: 30px;
+            margin: 0;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-size: 3em;
+            font-weight: bold;
+            color: #2C3E50;
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        form {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        label {
+            display: block;
+            margin: 20px 0 5px;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        li {
+            background: white;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        li strong {
+            font-size: 1.2em;
+            color: #2C3E50;
+        }
+
+        li br + span {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo">
+        <h1>Nomadly</h1>
+        <p class="subtitle">Find your next favorite place</p>
+    </div>
+
+    <form method="POST">
+        <label for="state">State:</label>
+        <select name="state" id="state">
+            {% for state in states %}
+                <option value="{{ state }}" {% if selected_state == state %}selected{% endif %}>{{ state }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="user_id">User ID:</label>
+        <select name="user_id" id="user_id">
+            {% for uid in user_ids %}
+                <option value="{{ uid }}" {% if selected_user == uid %}selected{% endif %}>{{ uid }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+            {% for cat in categories %}
+                <option value="{{ cat }}" {% if selected_category == cat %}selected{% endif %}>{{ cat.capitalize() }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="Get Recommendations">
+    </form>
+
+    <ul>
+        {% for business in recommendations %}
+            <li>
+                <strong>{{ business['name'] }}</strong><br>
+                {{ business['address'] }}<br>
+                Rating: {{ business['stars'] }}
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
+
+
