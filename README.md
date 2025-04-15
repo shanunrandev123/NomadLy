@@ -105,6 +105,53 @@ These recommendations are stored in a NumPy array (self.business_recommendations
 
 
 
+## Matrix Factorization.py
+
+## Matrix Factorization for Implicit Feedback
+
+This module implements a matrix factorization model (MF) to generate collaborative recommendations based on implicit feedback from Yelp reviews. It is designed to work on the same business rating matrix that the non-personalized recommendation system uses, but leverages latent factors to capture hidden user–business interactions.
+
+### Key Components
+
+#### 1. **MF_implicit Class**
+
+- **Purpose:**  
+  The `MF_implicit` class encapsulates the logic for training a matrix factorization model on a rating matrix. It is particularly geared for implicit feedback situations where the absence of a review (or rating) is treated as missing information.
+
+- **Initialization (`__init__`):**  
+  - **Input Parameters:**  
+    - `train_mat`: The user-by-business rating matrix (derived from Yelp reviews).
+    - `latent`: The number of latent factors used to represent users and businesses (default is 5).
+    - `lr`: The learning rate for gradient descent updates.
+    - `reg`: The regularization weight to avoid overfitting.
+  - **Internal Setup:**  
+    - Determines the number of users and businesses from the shape of the rating matrix.
+    - Randomly initializes the user latent factor matrix `P` and the business latent factor matrix `Q`.
+    - Retrieves the non-zero (i.e., observed) user–business rating pairs to guide training.
+
+- **Negative Sampling (`negative_sampling`):**  
+  Because the rating matrix is sparse (with many missing values), the model uses a negative sampling technique. For each observed rating, it randomly selects additional “negative” items (businesses) that the user has not rated, ensuring that training considers both positive and implicit negative interactions.
+
+- **Training (`train`):**  
+  The training function iterates through a number of epochs (default set to 20) where:
+  - For each epoch, negative sampling is performed to generate a shuffled list of user–business pairs.
+  - For each pair, the model computes the prediction error using the dot product of the corresponding latent vectors.
+  - The latent factors (in both `P` for users and `Q` for businesses) are updated using gradient descent, incorporating a regularization term to stabilize learning.
+
+- **Prediction (`predict`):**  
+  After training, the `predict` method computes the full prediction matrix by multiplying the user and business latent factor matrices (`P` and `Q`). For each user:
+  - It filters out businesses already rated (by setting their score to a very low value).
+  - It then selects the top *k* (up to 50) recommended businesses based on the highest predicted scores.
+  - These recommendations are returned in a NumPy array where each row corresponds to one user.
+
+- **Usage Example:**  
+  A helper function `calculateMF(ratings_mat)` is provided:
+  ```python
+  def calculateMF(ratings_mat):
+      mf_implicit = MF_implicit(ratings_mat, latent=5, lr=0.01, reg=0.0001)
+      mf_implicit.train(epoch=20)
+      recommendation = mf_implicit.predict()
+      return recommendation
 
 
 
