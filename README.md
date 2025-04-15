@@ -30,7 +30,7 @@ This class is the core component of the recommendation system and includes:
 
 ## Inner Business Class
 ### Purpose:
-1. Represents a single business entity with attributes:
+## 1.Represents a single business entity with attributes:
 
 name
 address
@@ -39,7 +39,7 @@ state
 postal_code
 stars (rating score)
 
-## 2. Initialization (__init__ method)
+## 2.Initialization (__init__ method)
 Parameters:
 
 business_df: A DataFrame containing business information filtered for a specific state.
@@ -101,5 +101,12 @@ Selects up to 50 top recommendations for that user.
 
 Storage:
 These recommendations are stored in a NumPy array (self.business_recommendations), where each row corresponds to a user and contains indices of recommended businesses.
+
+
+
+
+
+
+
 
 
