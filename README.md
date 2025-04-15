@@ -4,7 +4,10 @@
 
 NomadLy is a travel recommendation engine that harnesses Yelp's rich business and review datasets to help users discover the best travel destinations, restaurants, nightlife spots, and entertainment venues. By processing and filtering business data based on categories and geographic regions, NomadLy aims to provide personalized and insightful recommendations for travelers.
 
+## Datasets
 
+Download the Yelp review JSON file from the following link - https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset?select=yelp_academic_dataset_review.json
+ - Run Main.py file to convert the JSON file to CSV
 
 ## Recommendation.py
 
