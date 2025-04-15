@@ -144,15 +144,6 @@ This module implements a matrix factorization model (MF) to generate collaborati
   - It then selects the top *k* (up to 50) recommended businesses based on the highest predicted scores.
   - These recommendations are returned in a NumPy array where each row corresponds to one user.
 
-- **Usage Example:**  
-  A helper function `calculateMF(ratings_mat)` is provided:
-  ```python
-  def calculateMF(ratings_mat):
-      mf_implicit = MF_implicit(ratings_mat, latent=5, lr=0.01, reg=0.0001)
-      mf_implicit.train(epoch=20)
-      recommendation = mf_implicit.predict()
-      return recommendation
-
 
 
 
